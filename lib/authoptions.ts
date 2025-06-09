@@ -1,8 +1,8 @@
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google"
 import { LoginGoogle } from "@/app/actions/auth";
-import { CustomUser } from "@/types/next-auth";
-import { Account } from "next-auth";
+
+
 export const authOptions : NextAuthOptions = {
     providers : [  
         GoogleProvider({

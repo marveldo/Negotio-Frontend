@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import { SidebarProvider , 
          SidebarTrigger , 
         } from "@/components/ui/sidebar";
@@ -11,7 +11,7 @@ import { ChatsProvider, Rooms } from "./ChatContext";
 import axios from "axios"
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authoptions";
-import { GetChats, Getrooms } from "@/app/actions/createchatroom";
+import {  Getrooms } from "@/app/actions/createchatroom";
 
 export async function HomepageLayout ({children} : Readonly<{children : React.ReactNode}>){
      

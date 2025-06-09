@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
 import {toast} from "sonner"
 import { usePathname , useRouter } from "next/navigation";
-import { Rooms, useChatsContext } from "./ChatContext";
+import { useChatsContext } from "./ChatContext";
 import { CreateRoom , CreateChat } from "@/app/actions/createchatroom";
 import { signOut , useSession } from "next-auth/react";
 

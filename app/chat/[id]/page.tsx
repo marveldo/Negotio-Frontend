@@ -29,7 +29,7 @@ function Animatedpulse() {
 }
 
 function Chatitself({ text, index }: { text: Chats, index: number }) {
-    const {data : session , status} = useSession()
+    const {data : session } = useSession()
     return (
         <div key={index} className={`flex w-full ${text.type === 'chatbot' ? 'flex-row' : 'flex-row-reverse'} items-end gap-x-4`}>
             <div>
@@ -66,10 +66,10 @@ export default function ChatComponent({ params }: { params: Promise<{ id: string
     const { lastMessage } = useWebSocket(
         `wss://${process.env.NEXT_PUBLIC_BACKEND_HOST}/ws/chat/${id}/`,
         {
-            onOpen: (event) => {
+            onOpen: () => {
                 console.log('WebSocket connection opened');
             },
-            onError: (event) => {
+            onError: () => {
                  toast.error("Wbsocket Error Detected", {
                          description:  'Refresh the page',
                          classNames: {
@@ -82,7 +82,7 @@ export default function ChatComponent({ params }: { params: Promise<{ id: string
                     setchatbarloading(false)
                  }
             },
-            shouldReconnect: (closeEvent) => true,
+            shouldReconnect: () => true,
             reconnectInterval: 3000,
         }
     );

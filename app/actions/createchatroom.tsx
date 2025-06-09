@@ -1,6 +1,6 @@
 "use server"
 import { authOptions } from "@/lib/authoptions"
-import axios, { AxiosError } from "axios"
+import axios from "axios"
 import { getServerSession } from "next-auth"
 
 
