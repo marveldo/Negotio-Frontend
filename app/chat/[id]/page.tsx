@@ -64,7 +64,7 @@ export default function ChatComponent({ params }: { params: Promise<{ id: string
     // Proper WebSocket hook usage (moved out of connectwebsocket function)
    
     const { lastMessage } = useWebSocket(
-        `ws://${process.env.NEXT_PUBLIC_BACKEND_HOST}/ws/chat/${id}/`,
+        `wss://${process.env.NEXT_PUBLIC_BACKEND_HOST}/ws/chat/${id}/`,
         {
             onOpen: (event) => {
                 console.log('WebSocket connection opened');
