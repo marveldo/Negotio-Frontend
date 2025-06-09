@@ -19,11 +19,10 @@ export default function ChatInputBar () {
     const [loading , setloading] = React.useState<boolean>(false)
     const router = usePathname()
     const path = useRouter()
-    const {data:session , status} = useSession()
+    const {data:session} = useSession()
     const { 
       rooms , 
       setrooms , 
-      chats , 
       setchats , 
       chatbarloading , 
       setchatbarloading,
@@ -147,7 +146,7 @@ const handlecharbarlogicchatroute = async(message : string) => {
           return new_list
            })
       }
-      catch(error : any){
+      catch(error){
            toast.error("Error Sending message", {
           description:  'Failed to send message',
           classNames: {
@@ -155,7 +154,8 @@ const handlecharbarlogicchatroute = async(message : string) => {
             title: '!text-white',
             description: '!text-white'
           }
-        });
+          });
+           console.log(error)
       }
       finally{
         setloading(false)
@@ -174,7 +174,7 @@ const handlecharbarlogicchatroute = async(message : string) => {
           handlecharbarlogicchatroute(message)
         }
     }
-    const onclick = (e : React.SyntheticEvent<HTMLDivElement>) => {
+    const onclick = () => {
         if(chatmessage === ''){
            toast("Error Sending message",
             {

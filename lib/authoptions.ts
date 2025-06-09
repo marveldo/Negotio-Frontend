@@ -1,7 +1,7 @@
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google"
 import { LoginGoogle } from "@/app/actions/auth";
-
+import { CustomUser } from "@/types/next-auth";
 
 export const authOptions : NextAuthOptions = {
     providers : [  
@@ -21,16 +21,15 @@ export const authOptions : NextAuthOptions = {
                  
                  if(data.access){
                     
-                    (account as any).custom = {
-                      access: data.access,
-                     refresh: data.refresh,
-                     user: data.user
-                        };
+                   account.access_token = data.access
+                   account.refresh_token = data.refresh
+                   account.user = data.user as CustomUser
                     
                  }
                  return true
                 }
                 catch(error){
+                    console.log(error)
                     return false
                 }
             }
@@ -42,15 +41,9 @@ export const authOptions : NextAuthOptions = {
         async jwt({token , account}){
             if(account?.provider === 'google'){
                 
-                const CustomData = (account as any).custom
-           
-               
-               return {
-                  ...token,
-                  access: CustomData.access,
-                  refresh: CustomData.refresh,
-                  user: CustomData.user
-                };
+               token.access = account.access as string
+               token.refresh = account.refresh as string
+               token.user = account.user as CustomUser
             }
            return token
         },

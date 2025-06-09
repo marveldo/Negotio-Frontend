@@ -9,12 +9,13 @@ export const LoginGoogle = async(token : string) => {
             data : response.data
         }
      }
-     catch (error : any){
-        return error.response ? {
-            status : error.response?.status
-        } : {
-            status : 500
-        }
-     }
+    catch (error: unknown) {  
+         if (axios.isAxiosError(error)) {  
+          return {  
+            status: error.response?.status || 500  
+        };  
+       }  
+        return { status: 500 };  
+    }  
 
 }

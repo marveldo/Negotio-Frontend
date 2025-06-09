@@ -14,6 +14,11 @@ export interface Chats {
     message: string
 }
 
+interface OBJ {
+    message_from : string,
+    message : string
+}
+
 function Animatedpulse() {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
@@ -137,7 +142,7 @@ export default function ChatComponent({ params }: { params: Promise<{ id: string
                    return 
                 }
                 else {
-                    const Transformed_data : Chats[] = response.data.map((obj : any) => ({
+                    const Transformed_data : Chats[] = response.data.map((obj : OBJ) => ({
                       type : obj.message_from,
                       message : obj.message
                     }))
@@ -150,8 +155,7 @@ export default function ChatComponent({ params }: { params: Promise<{ id: string
                 }
             }
             else {
-                
-               toast.error("Error Fetching Messages", {
+                  toast.error("Error Fetching Messages", {
                          description:  'Failed to Fetch Messages',
                          classNames: {
                            toast: '!bg-red-500',
@@ -171,6 +175,7 @@ export default function ChatComponent({ params }: { params: Promise<{ id: string
                            description: '!text-white'
                          }
                        })
+                console.log(error)
          }
     }
 

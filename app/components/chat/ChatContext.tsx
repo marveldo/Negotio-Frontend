@@ -69,7 +69,7 @@ export function ChatsProvider ({children , initialState = [] , status_code = 200
         signOut({callbackUrl : '/'})
     }
     React.useEffect(() => {
-        let rooms_from_localstroage : Rooms[] = localStorage.getItem('rooms') ? JSON.parse(localStorage.getItem('rooms') as string) : []
+        const rooms_from_localstroage : Rooms[] = localStorage.getItem('rooms') ? JSON.parse(localStorage.getItem('rooms') as string) : []
         if (rooms_from_localstroage.length > 0  ){
             const new_rooms : Rooms[] = rooms ? [...rooms , ...rooms_from_localstroage] : [...rooms_from_localstroage] 
             setrooms(new_rooms)

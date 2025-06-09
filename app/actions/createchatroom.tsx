@@ -19,13 +19,14 @@ export const CreateRoom = async(message : string) => {
         data : response.data.obj
        }
     }
-    catch(error : any){
-        return error.response ? {
-            status : error.response?.status
-        } : {
-            status : 500
-        }
-    }
+     catch (error: unknown) {  
+         if (axios.isAxiosError(error)) {  
+          return {  
+            status: error.response?.status || 500  
+        };  
+       }  
+        return { status: 500 };  
+    }  
     }
     try {
        const response = await axios.post(`${process.env.BACKEND_URL}/chat/`, {room_name : message.slice(0,30)})
@@ -34,13 +35,14 @@ export const CreateRoom = async(message : string) => {
         data : response.data.obj
        }
     }
-    catch(error : any){
-        return error.response ? {
-            status : error.response?.status
-        } : {
-            status : 500
-        }
-    }
+    catch (error: unknown) {  
+         if (axios.isAxiosError(error)) {  
+          return {  
+            status: error.response?.status || 500  
+        };  
+       }  
+        return { status: 500 };  
+    }  
 }
 
 export const CreateChat = async(message : string, id :string) => {
@@ -56,13 +58,14 @@ export const CreateChat = async(message : string, id :string) => {
         }
        }
     }
-    catch(error : any){
-        return error.response ? {
-            status : error.response?.status
-        } : {
-            status : 500
-        }
-    }
+    catch (error: unknown) {  
+         if (axios.isAxiosError(error)) {  
+          return {  
+            status: error.response?.status || 500  
+        };  
+       }  
+        return { status: 500 };  
+    }  
 }
 
 export const GetChats = async(id : string) => {
@@ -72,13 +75,14 @@ export const GetChats = async(id : string) => {
             status : 200,
             data : response.data.obj
         }
-       }catch(error : any){
-           return error.response ? {
-            status : error.response?.status
-        } : {
-            status : 500
-        }
-       }
+       }catch (error: unknown) {  
+         if (axios.isAxiosError(error)) {  
+          return {  
+            status: error.response?.status || 500  
+        };  
+       }  
+        return { status: 500 };  
+    }  
 }
 
 export const Getrooms = async(access : string) => {
@@ -98,13 +102,13 @@ export const Getrooms = async(access : string) => {
         }
 
     }
-    catch(error : any){
-        return error.response ? {
-            status : error.response?.status,
+      catch (error: unknown) {  
+         if (axios.isAxiosError(error)) {  
+          return {  
+            status: error.response?.status || 500  ,
             data : []
-        } : {
-            status : 500,
-            data : []
-        }
-    }
+        };  
+       }  
+        return { status: 500 , data : [] };  
+    }  
 }

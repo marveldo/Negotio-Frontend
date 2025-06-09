@@ -5,7 +5,6 @@ import "animate.css"
 import SessionWrapper from "./components/auth/Sessionwrapper";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authoptions";
-import { Getrooms } from "./actions/createchatroom";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {

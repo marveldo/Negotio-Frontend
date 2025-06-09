@@ -6,9 +6,7 @@ import { SidebarComponent } from "./SidebarComponent";
 import menubar from "@/public/Images/menubar.svg"
 import Image from "next/image";
 import ChatInputBar from "./Chatbar";
-import { ChatsProvider, Rooms } from "./ChatContext";
-
-import axios from "axios"
+import { ChatsProvider} from "./ChatContext";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authoptions";
 import {  Getrooms } from "@/app/actions/createchatroom";
