@@ -195,7 +195,7 @@ const handlecharbarlogicchatroute = async(message : string) => {
     }
     return(
         
-        <div className=" w-full h-[65px] rounded-3xl bg-opacegreylight z-50 relative animate__animated animate__zoomIn" >
+        <div className=" w-full min-h-[65px] rounded-3xl bg-opacegreylight z-50 relative animate__animated animate__zoomIn" >
             <Input 
             className="h-full border-none focus-visible:border-none focus-visible:ring-0 focus-visible:ring-offset-0 text-white "
             placeholder="Enter Your Prompt"
