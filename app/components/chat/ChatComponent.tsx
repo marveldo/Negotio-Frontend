@@ -27,7 +27,7 @@ export async function HomepageLayout ({children} : Readonly<{children : React.Re
            <SidebarProvider popover="auto" defaultOpen={true}>  
              <ChatsProvider initialState={data} status_code={status}>
                <SidebarComponent/> 
-             <div className="w-full md:max-h-[100vh] sm:max-h-[90vh] sm:pt-12 px-8 pt-12 pb-6 relative flex flex-col sm:gap-y-12 gap-y-4 overflow-x-hidden ">
+             <div className="w-full md:max-h-[100vh] max-h-[90vh] sm:pt-12 px-8 pt-12 pb-6 relative flex flex-col sm:gap-y-12 gap-y-4 overflow-x-hidden ">
                <div className="absolute  left-0 bottom-0 h-[12rem] z-30 w-[12rem] rounded-full bg-radial blur-3xl from-purp to-black opacity-30  ">h</div>
                <div className="absolute right-0 h-[12rem]  w-[12rem] z-30 rounded-full bg-radial blur-3xl from-purp to-black opacity-30  ">h</div>
                <div className="absolute right-0 h-[12rem] z-30 bottom-0 w-[12rem] rounded-full bg-radial blur-3xl from-purp to-black opacity-30  ">h</div>
