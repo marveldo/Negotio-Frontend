@@ -149,6 +149,7 @@ export function SidebarComponent (){
               <Input
                 className="border-0 h-full italic bg-secgrey md:text-[9px] placeholder:text-[9px] focus:border-0 focus:outline-none focus:ring-0 focus-visible:border-none focus-visible:ring-0 focus-visible:ring-offset-0"
                 placeholder="Search for a chat ...."
+                disabled
               />
             </div>
 
