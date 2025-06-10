@@ -11,7 +11,7 @@ export default function Home() {
         <Image height={54.58} width={41} className="max-[1200px]:hidden" src={Vector} alt="Logo"/>
          <h1 className="text-[28px] min-[1200px]:hidden font-bold tracking-tighter bg-clip-text bg-gradient-to-r from-black to-purp text-transparent">Negotio</h1>
       </div>
-      <div className="flex flex-col text-center items-center gap-y-10">
+      <div className="flex flex-col text-center items-center min-[1025px]:gap-y-10 gap-y-5">
       <p className="font-inter text-[32px] text-black">How can we <span className="bg-clip-text bg-gradient-to-r font-bold from-black to-purp text-transparent">assist</span> you today?</p>
       <div className="max-w-md mx-auto px-4 sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl">
          <p className="text-center text-sm sm:text-base md:text-lg leading-relaxed">
