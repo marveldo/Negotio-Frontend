@@ -93,6 +93,7 @@ export default function ChatComponent({ params }: { params: Promise<{ id: string
     );
      
     React.useEffect(() => {
+        console.log(lastMessage)
         if (lastMessage) {
             
             try {
@@ -115,7 +116,7 @@ export default function ChatComponent({ params }: { params: Promise<{ id: string
                         if (index === -1) return prev;
                         return [...prev.slice(0, index), ...prev.slice(index + 1)];
                     });
-                    toast.error("Wbsocket Error Detected", {
+                    toast.error("Websocket Error Detected", {
                          description:  'Refresh the page',
                          classNames: {
                            toast: '!bg-red-500',
