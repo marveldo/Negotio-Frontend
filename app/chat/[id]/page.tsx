@@ -95,8 +95,8 @@ export default function ChatComponent({ params }: { params: Promise<{ id: string
     React.useEffect(() => {
         console.log(lastMessage)
         if (lastMessage) {
-            
-            try {
+            const timer = setTimeout(() => {
+             try {
                 const data = JSON.parse(lastMessage.data);
                 if (data.status !== 'Error') {
                     setchats(prev => {
@@ -129,6 +129,8 @@ export default function ChatComponent({ params }: { params: Promise<{ id: string
             } catch (error) {
                 console.error('Error parsing WebSocket message:', error);
             }
+            }, 3000)
+         return () => clearTimeout(timer)
         }
     }, [lastMessage]);
 
