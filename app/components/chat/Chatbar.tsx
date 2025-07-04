@@ -60,12 +60,7 @@ export default function ChatInputBar () {
   
       setrooms(new_items);
 
-      setchats([
-        { type: 'chatbot', message: 'loading' },
-        { type: 'user', message: chatmessage }
-      ]);
       
-      setchatbarloading(true);
       
       
      
@@ -82,10 +77,16 @@ export default function ChatInputBar () {
         });
         return 
       }
+    
+      setchats([
+        { type: 'chatbot', message: 'loading' },
+        { type: 'user', message: chatmessage }
+      ]);
       
+      setchatbarloading(true);
 
     } 
-    else if (serveractionres.status === 200){
+    else if (serveractionres.status === 401){
           toast.error('Token Expired', {
                description : 'Log in Again',
                 classNames: {
