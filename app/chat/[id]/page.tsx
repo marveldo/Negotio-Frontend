@@ -93,7 +93,6 @@ export default function ChatComponent({ params }: { params: Promise<{ id: string
     );
      
     React.useEffect(() => {
-        console.log(lastMessage)
         if (lastMessage) {
             const timer = setTimeout(() => {
              try {
