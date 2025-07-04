@@ -54,13 +54,6 @@ export default function ChatInputBar () {
          localStorage.setItem('rooms', JSON.stringify([newRoom, ...items]));
       }
      
-      path.push(`/chat/${serveractionres.data.id}`);
-      
-     
-  
-      setrooms(new_items);
-
-      
       
       
      
@@ -77,14 +70,19 @@ export default function ChatInputBar () {
         });
         return 
       }
-    
+      
+      path.push(`/chat/${serveractionres.data.id}`);
+      
+     
+  
+      setrooms(new_items);
+
       setchats([
         { type: 'chatbot', message: 'loading' },
         { type: 'user', message: chatmessage }
       ]);
       
       setchatbarloading(true);
-
     } 
     else if (serveractionres.status === 401){
           toast.error('Token Expired', {
